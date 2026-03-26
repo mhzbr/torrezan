@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo | Torrezan Pedras Decorativas</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .catalog-hero {
+      padding: 70px 0 30px;
+      background: linear-gradient(180deg, rgba(79,107,77,0.08), transparent);
+    }
+
+    .catalog-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .catalog-hero p {
+      max-width: 760px;
+      color: var(--text-light);
+    }
+
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .catalog-sidebar,
+    .catalog-toolbar,
+    .product-card,
+    .cart-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .catalog-sidebar {
+      padding: 22px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .catalog-sidebar h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 18px;
+    }
+
+    .category-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .category-btn {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    .catalog-main {
+      display: grid;
+      gap: 20px;
+    }
+
+    .catalog-toolbar {
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .catalog-toolbar input {
+      flex: 1;
+      min-width: 220px;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0 16px;
+      font-size: 0.96rem;
+      outline: none;
+    }
+
+    .catalog-toolbar input:focus {
+      border-color: var(--primary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      overflow: hidden;
+    }
+
+    .product-image {
+      aspect-ratio: 1 / 1;
+      background: #dfe7da center/cover no-repeat;
+    }
+
+    .product-content {
+      padding: 18px;
+    }
+
+    .product-category {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .product-content h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .product-content p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-sm {
+      min-height: 44px;
+      padding: 0 18px;
+      font-size: 0.92rem;
+    }
+
+    .floating-cart {
+      position: fixed;
+      right: 20px;
+      bottom: 95px;
+      z-index: 1500;
+    }
+
+    .cart-toggle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 1.35rem;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #d64545;
+      color: #fff;
+      font-size: 0.8rem;
+      display: grid;
+      place-items: center;
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: min(420px, 100%);
+      height: 100vh;
+      background: #fff;
+      z-index: 2000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.active {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      color: var(--primary-dark);
+      font-size: 1.25rem;
+    }
+
+    .cart-close {
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary-dark);
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .cart-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cart-item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .cart-item h4 {
+      font-size: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .cart-item span {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .qty-value {
+      min-width: 28px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .remove-btn {
+      margin-left: auto;
+      border: none;
+      background: transparent;
+      color: #b34242;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 12px;
+    }
+
+    .cart-footer textarea {
+      width: 100%;
+      min-height: 90px;
+      resize: vertical;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .empty-cart {
+      color: var(--text-light);
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    @media (max-width: 1080px) {
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .catalog-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .catalog-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-panel {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span>Pedras decorativas em Maringá e região</span>
+        <span>Monte seu orçamento e envie direto no WhatsApp</span>
+      </div>
+      <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20falar%20sobre%20pedras%20decorativas." target="_blank">
+        Falar com a loja
+      </a>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <strong>TORREZAN</strong>
+        <span>Pedras Decorativas</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="index.html#campeoes">Campeões</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+
+      <a
+        class="btn btn-primary header-cta"
+        href="https://wa.me/5544998970008?text=Olá!%20Quero%20um%20orçamento."
+        target="_blank"
+      >
+        Pedir orçamento
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog-hero">
+      <div class="container">
+        <h1>Catálogo de pedras decorativas</h1>
+        <p>
+          Navegue por categoria, selecione os produtos que te interessam e envie seu pedido direto para o WhatsApp da loja.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 20px;">
+      <div class="container catalog-layout">
+        <aside class="catalog-sidebar">
+          <h3>Categorias</h3>
+          <div class="category-list" id="categoryList">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="travertino">Travertino</button>
+            <button class="category-btn" data-category="moledo">Moledo</button>
+            <button class="category-btn" data-category="cortes-naturais">Cortes Naturais</button>
+            <button class="category-btn" data-category="pedra-ferro">Pedra Ferro</button>
+            <button class="category-btn" data-category="miracema">Miracema</button>
+            <button class="category-btn" data-category="goiana">Goiana</button>
+            <button class="category-btn" data-category="seixos">Seixos</button>
+            <button class="category-btn" data-category="pisantes">Pisantes</button>
+            <button class="category-btn" data-category="basalto">Basalto</button>
+            <button class="category-btn" data-category="mosaicos">Mosaicos</button>
+          </div>
+        </aside>
+
+        <div class="catalog-main">
+          <div class="catalog-toolbar">
+            <input type="text" id="searchInput" placeholder="Buscar por nome do produto ou categoria..." />
+            <a class="btn btn-outline" href="index.html">Voltar para a Home</a>
+          </div>
+
+          <div class="products-grid" id="productsGrid">
+            <article class="product-card" data-category="travertino" data-name="Travertino Bege">
+              <div class="product-image" style="background-image:url('img/travertino-bege.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Travertino</span>
+                <h3>Travertino Bege</h3>
+                <p>Ideal para ambientes sofisticados, áreas gourmet e revestimentos elegantes.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Travertino Bege" data-category="Travertino">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="travertino" data-name="Travertino Romano">
+              <div class="product-image" style="background-image:url('img/travertino-romano.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Travertino</span>
+                <h3>Travertino Romano</h3>
+                <p>Revestimento premium com visual natural e acabamento refinado.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Travertino Romano" data-category="Travertino">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="moledo" data-name="Pedra Moledo">
+              <div class="product-image" style="background-image:url('img/pedra-moledo.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Moledo</span>
+                <h3>Pedra Moledo</h3>
+                <p>Excelente para fachadas, muros e projetos com visual mais rústico e marcante.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Pedra Moledo" data-category="Moledo">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="cortes-naturais" data-name="Corte Natural Bege">
+              <div class="product-image" style="background-image:url('img/corte-natural-bege.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Cortes Naturais</span>
+                <h3>Corte Natural Bege</h3>
+                <p>Perfeito para ambientes internos e externos com toque orgânico e elegante.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Corte Natural Bege" data-category="Cortes Naturais">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="pedra-ferro" data-name="Pedra Ferro">
+              <div class="product-image" style="background-image:url('img/pedra-ferro.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Pedra Ferro</span>
+                <h3>Pedra Ferro</h3>
+                <p>Visual forte e sofisticado para projetos premium e modernos.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Pedra Ferro" data-category="Pedra Ferro">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="miracema" data-name="Pedra Miracema">
+              <div class="product-image" style="background-image:url('img/pedra-miracema.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Miracema</span>
+                <h3>Pedra Miracema</h3>
+                <p>Ótima escolha para calçadas, circulação e áreas externas com alta resistência.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Pedra Miracema" data-category="Miracema">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="goiana" data-name="Pedra Goiana">
+              <div class="product-image" style="background-image:url('img/pedra-goiana.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Goiana</span>
+                <h3>Pedra Goiana</h3>
+                <p>Antiderrapante e atérmica, muito usada em áreas de piscina e lazer.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Pedra Goiana" data-category="Goiana">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="seixos" data-name="Seixo Natural">
+              <div class="product-image" style="background-image:url('img/seixo-natural.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Seixos</span>
+                <h3>Seixo Natural</h3>
+                <p>Mais charme e composição para jardins, vasos e acabamentos decorativos.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Seixo Natural" data-category="Seixos">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="pisantes" data-name="Pisante Rústico">
+              <div class="product-image" style="background-image:url('img/pisante-rustico.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Pisantes</span>
+                <h3>Pisante Rústico</h3>
+                <p>Ideal para caminhos de jardim e áreas externas com beleza natural.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Pisante Rústico" data-category="Pisantes">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="basalto" data-name="Basalto Serrado">
+              <div class="product-image" style="background-image:url('img/basalto-serrado.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Basalto</span>
+                <h3>Basalto Serrado</h3>
+                <p>Pedra robusta e moderna para áreas externas e projetos contemporâneos.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Basalto Serrado" data-category="Basalto">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="mosaicos" data-name="Mosaico Natural">
+              <div class="product-image" style="background-image:url('img/mosaico-natural.jpg');"></div>
+              <div class="product-content">
+                <span class="product-category">Mosaicos</span>
+                <h3>Mosaico Natural</h3>
+                <p>Perfeito para composições elegantes, paredes decorativas e detalhes de alto padrão.</p>
+                <div class="product-actions">
+                  <button class="btn btn-primary btn-sm add-to-cart" data-name="Mosaico Natural" data-category="Mosaicos">Adicionar ao orçamento</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-cart">
+    <button class="cart-toggle" id="cartToggle" aria-label="Abrir carrinho">
+      🛒
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+
+  <aside class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h3>Seu orçamento</h3>
+      <button class="cart-close" id="cartClose">×</button>
+    </div>
+
+    <div class="cart-body" id="cartItems">
+      <div class="empty-cart">Seu carrinho está vazio.</div>
+    </div>
+
+    <div class="cart-footer">
+      <textarea id="cartNote" placeholder="Observações do cliente, medida aproximada, cidade, tipo de projeto..."></textarea>
+      <button class="btn btn-primary" id="sendWhatsApp">Enviar para o WhatsApp</button>
+    </div>
+  </aside>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav");
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener("click", () => nav.classList.toggle("active"));
+      document.querySelectorAll(".nav a").forEach(link => {
+        link.addEventListener("click", () => nav.classList.remove("active"));
+      });
+    }
+
+    const products = document.querySelectorAll(".product-card");
+    const categoryButtons = document.querySelectorAll(".category-btn");
+    const searchInput = document.getElementById("searchInput");
+
+    let activeCategory = "todos";
+
+    function filterProducts() {
+      const search = searchInput.value.toLowerCase().trim();
+
+      products.forEach(product => {
+        const category = product.dataset.category.toLowerCase();
+        const name = product.dataset.name.toLowerCase();
+
+        const categoryMatch = activeCategory === "todos" || category === activeCategory;
+        const searchMatch = name.includes(search) || category.includes(search);
+
+        product.style.display = categoryMatch && searchMatch ? "block" : "none";
+      });
+    }
+
+    categoryButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        categoryButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        activeCategory = button.dataset.category;
+        filterProducts();
+      });
+    });
+
+    searchInput.addEventListener("input", filterProducts);
+
+    const cart = [];
+    const cartToggle = document.getElementById("cartToggle");
+    const cartPanel = document.getElementById("cartPanel");
+    const cartClose = document.getElementById("cartClose");
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const sendWhatsApp = document.getElementById("sendWhatsApp");
+    const cartNote = document.getElementById("cartNote");
+
+    function openCart() {
+      cartPanel.classList.add("active");
+    }
+
+    function closeCart() {
+      cartPanel.classList.remove("active");
+    }
+
+    cartToggle.addEventListener("click", openCart);
+    cartClose.addEventListener("click", closeCart);
+
+    function updateCart() {
+      cartCount.textContent = cart.reduce((total, item) => total + item.qty, 0);
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<div class="empty-cart">Seu carrinho está vazio.</div>';
+        return;
+      }
+
+      cartItems.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <div class="cart-item-top">
+            <div>
+              <h4>${item.name}</h4>
+              <span>${item.category}</span>
+            </div>
+          </div>
+          <div class="cart-controls">
+            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+            <span class="qty-value">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+            <button class="remove-btn" onclick="removeItem(${index})">Remover</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function addToCart(name, category) {
+      const existing = cart.find(item => item.name === name);
+
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, category, qty: 1 });
+      }
+
+      updateCart();
+      openCart();
+    }
+
+    function changeQty(index, amount) {
+      cart[index].qty += amount;
+
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+
+      updateCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    window.changeQty = changeQty;
+    window.removeItem = removeItem;
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", () => {
+        addToCart(button.dataset.name, button.dataset.category);
+      });
+    });
+
+    sendWhatsApp.addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert("Adicione pelo menos um item ao carrinho.");
+        return;
+      }
+
+      const phone = "5544998970008";
+      let message = "Olá! Gostaria de solicitar um orçamento com os itens abaixo:%0A%0A";
+
+      cart.forEach((item, index) => {
+        message += `${index + 1}. ${item.name} - Categoria: ${item.category} - Qtd: ${item.qty}%0A`;
+      });
+
+      if (cartNote.value.trim()) {
+        message += `%0AObservações:%0A${encodeURIComponent(cartNote.value.trim())}`;
+      }
+
+      const url = `https://wa.me/${phone}?text=${message}`;
+      window.open(url, "_blank");
+    });
+
+    updateCart();
+  </script>
+</body>
+</html>

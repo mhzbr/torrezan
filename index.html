@@ -3,629 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Torrezan Pedras Decorativas | Pedras Naturais e Revestimentos</title>
+  <title>Torrezan Pedras Decorativas | Pedras Naturais e Revestimentos em Maringá</title>
   <meta
     name="description"
-    content="Pedras decorativas, revestimentos naturais, mosaicos e soluções em pedra para ambientes residenciais e comerciais. Atendimento para Maringá e região."
+    content="Pedras decorativas, revestimentos naturais, mosaicos, pedras para piscina, jardim, parede e calçada em Maringá. Atendimento especializado e orçamento pelo WhatsApp."
   />
-  <style>
-    :root {
-      --bg: #f6f1ea;
-      --bg-soft: #fbf8f4;
-      --text: #1f1a17;
-      --text-light: #5d554e;
-      --primary: #7b5b42;
-      --primary-dark: #5d4331;
-      --accent: #c7a27c;
-      --white: #ffffff;
-      --border: #e5d8cb;
-      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --container: 1200px;
-      --transition: all 0.25s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    .container {
-      width: min(100% - 32px, var(--container));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .section-subtitle {
-      color: var(--text-light);
-      max-width: 760px;
-      font-size: 1.05rem;
-      margin-bottom: 36px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: var(--transition);
-      border: 2px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .topbar {
-      background: var(--primary-dark);
-      color: var(--white);
-      font-size: 0.92rem;
-      padding: 10px 0;
-    }
-
-    .topbar .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .topbar-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(251, 248, 244, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(123, 91, 66, 0.08);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 82px;
-      gap: 18px;
-    }
-
-    .logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-
-    .logo strong {
-      font-size: 1.4rem;
-      letter-spacing: 0.04em;
-      color: var(--primary-dark);
-    }
-
-    .logo span {
-      font-size: 0.82rem;
-      color: var(--text-light);
-      margin-top: 6px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-    }
-
-    .nav a {
-      font-weight: 600;
-      color: var(--text);
-      transition: var(--transition);
-    }
-
-    .nav a:hover {
-      color: var(--primary);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      border: none;
-      font-size: 1.7rem;
-      cursor: pointer;
-      color: var(--primary-dark);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(to right, rgba(24, 18, 14, 0.78), rgba(24, 18, 14, 0.48)),
-        url("img/hero-pedras.jpg") center/cover no-repeat;
-      color: var(--white);
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.22), transparent 35%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      padding: 80px 0;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 10px 18px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-      font-size: 0.94rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4.7rem);
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 650px;
-      color: rgba(255,255,255,0.88);
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-
-    .hero-highlights {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .hero-highlight {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-    }
-
-    .hero-highlight strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 5px;
-    }
-
-    .hero-highlight span {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.82);
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .category-image,
-    .gallery-image {
-      aspect-ratio: 4 / 3;
-      background: #ddd center/cover no-repeat;
-    }
-
-    .category-content,
-    .gallery-content {
-      padding: 22px;
-    }
-
-    .category-content h3,
-    .gallery-content h3,
-    .audience-card h3,
-    .differential-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-    }
-
-    .category-content p,
-    .gallery-content p,
-    .audience-card p,
-    .differential-card p {
-      color: var(--text-light);
-      font-size: 0.98rem;
-    }
-
-    .category-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .differentials-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .differential-card,
-    .audience-card {
-      background: var(--white);
-      padding: 28px 24px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .icon-box {
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
-      background: rgba(123, 91, 66, 0.1);
-      color: var(--primary-dark);
-      display: grid;
-      place-items: center;
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .about-image {
-      min-height: 520px;
-      border-radius: 26px;
-      background:
-        linear-gradient(rgba(24, 18, 14, 0.08), rgba(24, 18, 14, 0.08)),
-        url("img/sobre-torrezan.jpg") center/cover no-repeat;
-      box-shadow: var(--shadow);
-    }
-
-    .about-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .about-list li {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 16px 18px;
-      box-shadow: var(--shadow);
-      font-weight: 600;
-    }
-
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .cta-section {
-      background:
-        linear-gradient(to right, rgba(93, 67, 49, 0.92), rgba(123, 91, 66, 0.92)),
-        url("img/cta-bg.jpg") center/cover no-repeat;
-      color: var(--white);
-      text-align: center;
-      border-radius: 28px;
-      padding: 70px 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-section p {
-      color: rgba(255,255,255,0.88);
-      max-width: 760px;
-      margin: 0 auto 28px;
-      font-size: 1.06rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-    }
-
-    .contact-card,
-    .map-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .contact-list li {
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .contact-list li:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .contact-list strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .map-embed {
-      width: 100%;
-      min-height: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 18px;
-      background: #e9e0d6;
-    }
-
-    .footer {
-      background: #1d1714;
-      color: rgba(255,255,255,0.78);
-      padding: 50px 0 26px;
-      margin-top: 80px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 28px;
-      margin-bottom: 28px;
-    }
-
-    .footer h4 {
-      color: var(--white);
-      margin-bottom: 14px;
-      font-size: 1.05rem;
-    }
-
-    .footer ul {
-      display: grid;
-      gap: 10px;
-    }
-
-    .footer a:hover {
-      color: var(--white);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 18px;
-      font-size: 0.92rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 1200;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: #25d366;
-      color: #fff;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 16px 30px rgba(37, 211, 102, 0.28);
-      font-size: 1.7rem;
-      font-weight: 900;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.06);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: 0.7s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1080px) {
-      .cards-grid,
-      .differentials-grid,
-      .audience-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .split,
-      .contact-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-image {
-        min-height: 360px;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .nav {
-        position: fixed;
-        top: 82px;
-        right: -100%;
-        width: min(320px, 88vw);
-        height: calc(100vh - 82px);
-        background: var(--white);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 28px 24px;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        transition: var(--transition);
-      }
-
-      .nav.active {
-        right: 0;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .header-cta {
-        display: none;
-      }
-
-      .hero-highlights {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .section {
-        padding: 62px 0;
-      }
-
-      .cards-grid,
-      .differentials-grid,
-      .audience-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding: 110px 0 72px;
-      }
-
-      .topbar .container {
-        justify-content: center;
-      }
-
-      .topbar-info {
-        justify-content: center;
-      }
-
-      .cta-section {
-        padding: 50px 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span>Atendimento especializado em pedras decorativas</span>
-        <span>Maringá e região</span>
+        <span>Pedras decorativas em Maringá e região</span>
+        <span>Atendimento especializado e orçamento rápido</span>
       </div>
-      <a href="https://wa.me/5544999999999?text=Olá!%20Quero%20solicitar%20um%20orçamento." target="_blank">
+      <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20solicitar%20um%20orçamento." target="_blank">
         Solicite seu orçamento pelo WhatsApp
       </a>
     </div>
@@ -641,15 +33,15 @@
       <nav class="nav" id="nav">
         <a href="#inicio">Início</a>
         <a href="#categorias">Categorias</a>
+        <a href="#campeoes">Campeões de venda</a>
         <a href="#diferenciais">Diferenciais</a>
-        <a href="#projetos">Projetos</a>
         <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
+        <a href="catalogo.html">Catálogo</a>
       </nav>
 
       <a
         class="btn btn-primary header-cta"
-        href="https://wa.me/5544999999999?text=Olá!%20Quero%20solicitar%20um%20orçamento."
+        href="https://wa.me/5544998970008?text=Olá!%20Quero%20solicitar%20um%20orçamento."
         target="_blank"
       >
         Pedir orçamento
@@ -665,16 +57,16 @@
     <section class="hero" id="inicio">
       <div class="container">
         <div class="hero-content">
-          <div class="hero-badge">Soluções em pedras naturais para ambientes de alto padrão</div>
-          <h1>Pedras decorativas que valorizam seu projeto do jeito certo</h1>
+          <div class="hero-badge">Variedade completa em pedras decorativas para sua obra</div>
+          <h1>Sua obra está em fase de acabamento? Então é agora que você precisa da Torrezan.</h1>
           <p>
-            Revestimentos naturais, mosaicos, pedras decorativas e soluções para áreas internas e externas.
-            Atendemos consumidor final, arquitetos, construtoras e profissionais que buscam acabamento premium.
+            Encontre pedras para piscina, parede, calçada e jardim com atendimento humanizado,
+            qualidade garantida e soluções que transformam sua obra com mais sofisticação.
           </p>
 
           <div class="hero-actions">
             <a
-              href="https://wa.me/5544999999999?text=Olá!%20Quero%20um%20orçamento%20para%20meu%20projeto."
+              href="https://wa.me/5544998970008?text=Olá!%20Quero%20um%20orçamento%20para%20meu%20projeto."
               class="btn btn-primary"
               target="_blank"
             >
@@ -685,16 +77,16 @@
 
           <div class="hero-highlights">
             <div class="hero-highlight">
-              <strong>Variedade de materiais</strong>
-              <span>Opções para fachadas, jardins, muros, paredes e áreas externas.</span>
+              <strong>Variedade completa</strong>
+              <span>Pedras para parede, jardim, calçada, piscina e áreas externas.</span>
             </div>
             <div class="hero-highlight">
-              <strong>Atendimento consultivo</strong>
-              <span>Suporte para escolher o material ideal para seu ambiente.</span>
+              <strong>Atendimento personalizado</strong>
+              <span>Ajuda para escolher o material ideal para cada projeto.</span>
             </div>
             <div class="hero-highlight">
-              <strong>Alto padrão</strong>
-              <span>Materiais que unem durabilidade, estética e sofisticação.</span>
+              <strong>Preço justo com qualidade</strong>
+              <span>Acabamento de alto padrão com credibilidade em Maringá e região.</span>
             </div>
           </div>
         </div>
@@ -704,44 +96,43 @@
     <section class="section" id="categorias">
       <div class="container">
         <div class="reveal">
-          <h2 class="section-title">Nossas principais categorias</h2>
+          <h2 class="section-title">Cada pedra é pensada para oferecer um ambiente personalizado para você</h2>
           <p class="section-subtitle">
-            Estruturamos essa home para já servir como base do futuro catálogo. Você pode transformar cada card
-            abaixo em uma página específica depois, sem precisar refazer o site.
+            Do simples ao sofisticado, com o toque certo de pedras naturais para valorizar seu espaço.
           </p>
         </div>
 
         <div class="cards-grid">
           <article class="card reveal">
-            <div class="category-image" style="background-image: url('img/categoria-pedras-decorativas.jpg');"></div>
+            <div class="category-image" style="background-image: url('img/categoria-piscina.jpg');"></div>
             <div class="category-content">
-              <h3>Pedras Decorativas</h3>
+              <h3>Pedras para Piscina</h3>
               <p>
-                Soluções que agregam textura, sofisticação e presença para fachadas, muros, paredes e ambientes externos.
+                Opções bonitas, resistentes e pensadas para áreas de lazer com mais segurança e sofisticação.
               </p>
-              <a href="#" class="category-link">Em breve no catálogo →</a>
+              <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20ver%20opções%20de%20pedras%20para%20piscina." class="category-link" target="_blank">Solicitar opções →</a>
             </div>
           </article>
 
           <article class="card reveal">
-            <div class="category-image" style="background-image: url('img/categoria-revestimentos.jpg');"></div>
+            <div class="category-image" style="background-image: url('img/categoria-parede.jpg');"></div>
             <div class="category-content">
-              <h3>Revestimentos Naturais</h3>
+              <h3>Pedras para Parede</h3>
               <p>
-                Materiais ideais para quem busca beleza natural, resistência e acabamento de alto padrão.
+                Revestimentos naturais que trazem textura, imponência e elegância para ambientes internos e externos.
               </p>
-              <a href="#" class="category-link">Em breve no catálogo →</a>
+              <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20ver%20opções%20de%20pedras%20para%20parede." class="category-link" target="_blank">Solicitar opções →</a>
             </div>
           </article>
 
           <article class="card reveal">
-            <div class="category-image" style="background-image: url('img/categoria-mosaicos.jpg');"></div>
+            <div class="category-image" style="background-image: url('img/categoria-calcada.jpg');"></div>
             <div class="category-content">
-              <h3>Mosaicos</h3>
+              <h3>Pedras para Calçada</h3>
               <p>
-                Composição estética elegante para projetos residenciais e comerciais com mais personalidade.
+                Soluções robustas para circulação, fachadas e áreas externas com visual natural e durabilidade.
               </p>
-              <a href="#" class="category-link">Em breve no catálogo →</a>
+              <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20ver%20opções%20de%20pedras%20para%20calçada." class="category-link" target="_blank">Solicitar opções →</a>
             </div>
           </article>
 
@@ -750,122 +141,130 @@
             <div class="category-content">
               <h3>Pedras para Jardim</h3>
               <p>
-                Materiais pensados para paisagismo, circulação e composição visual em áreas verdes e externas.
+                Mais personalidade para paisagismo, detalhes decorativos e áreas externas residenciais e comerciais.
               </p>
-              <a href="#" class="category-link">Em breve no catálogo →</a>
+              <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20ver%20opções%20de%20pedras%20para%20jardim." class="category-link" target="_blank">Solicitar opções →</a>
             </div>
           </article>
 
           <article class="card reveal">
-            <div class="category-image" style="background-image: url('img/categoria-pisos.jpg');"></div>
+            <div class="category-image" style="background-image: url('img/categoria-mosaicos.jpg');"></div>
             <div class="category-content">
-              <h3>Pisos Externos</h3>
+              <h3>Mosaicos</h3>
               <p>
-                Opções robustas e sofisticadas para áreas de circulação, lazer, varandas e espaços abertos.
+                Composição sofisticada para projetos que pedem estética marcante, naturalidade e acabamento premium.
               </p>
-              <a href="#" class="category-link">Em breve no catálogo →</a>
+              <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20ver%20opções%20de%20mosaicos." class="category-link" target="_blank">Solicitar opções →</a>
             </div>
           </article>
 
           <article class="card reveal">
-            <div class="category-image" style="background-image: url('img/categoria-bordas.jpg');"></div>
+            <div class="category-image" style="background-image: url('img/categoria-revestimentos.jpg');"></div>
             <div class="category-content">
-              <h3>Bordas e Acabamentos</h3>
+              <h3>Revestimentos Naturais</h3>
               <p>
-                Detalhes que elevam o visual final do projeto com acabamento técnico e estética refinada.
+                Materiais para quem busca acabamento refinado, durabilidade e valorização do imóvel.
               </p>
-              <a href="#" class="category-link">Em breve no catálogo →</a>
+              <a href="https://wa.me/5544998970008?text=Olá!%20Quero%20ver%20opções%20de%20revestimentos%20naturais." class="category-link" target="_blank">Solicitar opções →</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="diferenciais" style="background: var(--bg-soft);">
+    <section class="section" id="campeoes" style="background: var(--bg-soft);">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Campeões de venda</h2>
+          <p class="section-subtitle">
+            Conheça algumas das pedras mais procuradas para transformar obras e ambientes com mais personalidade.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card reveal">
+            <div class="gallery-image" style="background-image: url('img/pedra-goiana.jpg');"></div>
+            <div class="gallery-content">
+              <h3>Pedra Goiana</h3>
+              <p>
+                Bonita, antiderrapante e atérmica. Uma das opções mais buscadas para áreas externas e piscina.
+              </p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="gallery-image" style="background-image: url('img/pedra-ferro-basalto.jpg');"></div>
+            <div class="gallery-content">
+              <h3>Pedra Ferro e Basalto</h3>
+              <p>
+                Visual moderno e sofisticado para projetos com presença marcante e acabamento premium.
+              </p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="gallery-image" style="background-image: url('img/pedra-miracema.jpg');"></div>
+            <div class="gallery-content">
+              <h3>Pedra Miracema</h3>
+              <p>
+                Excelente escolha para calçadas, circulação e áreas externas com resistência e estética natural.
+              </p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="gallery-image" style="background-image: url('img/seixos-pisantes.jpg');"></div>
+            <div class="gallery-content">
+              <h3>Seixos e Pisantes</h3>
+              <p>
+                Detalhes que fazem diferença no paisagismo, trazendo charme e composição elegante para o ambiente.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diferenciais">
       <div class="container">
         <div class="reveal">
           <h2 class="section-title">Por que escolher a Torrezan</h2>
           <p class="section-subtitle">
-            Sua LP já comunica qualidade. Aqui transformamos isso em blocos estratégicos para reforçar autoridade,
-            confiança e poder de conversão.
+            Uma base comercial forte, com variedade, atendimento consultivo e materiais que valorizam a obra do começo ao acabamento.
           </p>
         </div>
 
         <div class="differentials-grid">
           <article class="differential-card reveal">
             <div class="icon-box">◆</div>
-            <h3>Curadoria de materiais</h3>
+            <h3>Variedade completa em um só lugar</h3>
             <p>
-              Seleção de pedras e revestimentos com foco em estética, durabilidade e valorização do ambiente.
+              Diferentes tipos de pedras para ambientes externos, internos, paisagismo e revestimento.
             </p>
           </article>
 
           <article class="differential-card reveal">
             <div class="icon-box">◈</div>
-            <h3>Atendimento especializado</h3>
+            <h3>Atendimento humanizado</h3>
             <p>
-              Suporte para consumidor final, arquitetos, designers, construtoras e profissionais do setor.
+              Uma experiência mais próxima e personalizada para facilitar sua escolha e seu orçamento.
             </p>
           </article>
 
           <article class="differential-card reveal">
             <div class="icon-box">▣</div>
-            <h3>Projetos de alto padrão</h3>
+            <h3>Qualidade garantida</h3>
             <p>
-              Materiais ideais para espaços que exigem sofisticação, personalidade e acabamento premium.
+              Produtos pensados para unir estética, resistência e valorização do seu espaço.
             </p>
           </article>
 
           <article class="differential-card reveal">
             <div class="icon-box">◉</div>
-            <h3>Atendimento regional</h3>
+            <h3>Referência em Maringá e região</h3>
             <p>
-              Estrutura preparada para atender Maringá e região com agilidade no processo comercial.
+              Estrutura comercial posicionada para atender clientes residenciais, arquitetos e profissionais da construção.
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projetos">
-      <div class="container">
-        <div class="reveal">
-          <h2 class="section-title">Projetos que transformam ambientes</h2>
-          <p class="section-subtitle">
-            Essa seção substitui a ausência de catálogo completo neste momento e ajuda a vender pela aplicação real,
-            não apenas pelo produto isolado.
-          </p>
-        </div>
-
-        <div class="cards-grid">
-          <article class="card reveal">
-            <div class="gallery-image" style="background-image: url('img/projeto-fachada.jpg');"></div>
-            <div class="gallery-content">
-              <h3>Fachadas e muros</h3>
-              <p>
-                Textura, imponência e valorização visual para áreas externas residenciais e comerciais.
-              </p>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="gallery-image" style="background-image: url('img/projeto-ambiente-interno.jpg');"></div>
-            <div class="gallery-content">
-              <h3>Ambientes internos</h3>
-              <p>
-                Elegância natural para paredes, painéis, áreas gourmet e espaços integrados.
-              </p>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="gallery-image" style="background-image: url('img/projeto-paisagismo.jpg');"></div>
-            <div class="gallery-content">
-              <h3>Paisagismo e jardim</h3>
-              <p>
-                Soluções decorativas que unem natureza, resistência e composição estética.
-              </p>
-            </div>
           </article>
         </div>
       </div>
@@ -876,17 +275,17 @@
         <div class="about-image reveal"></div>
 
         <div class="reveal">
-          <h2 class="section-title">Uma base forte para evoluir seu site</h2>
+          <h2 class="section-title">Agora é a hora de transformar sua obra em um projeto exclusivo e sofisticado</h2>
           <p class="section-subtitle">
-            Como sua LP já possui posicionamento e linguagem bem definidos, essa home aproveita o conteúdo existente
-            e prepara a marca para crescer com novas páginas, novas categorias e catálogo expandido.
+            Esta home aproveita a linha comercial da marca e já organiza melhor a experiência do usuário,
+            preparando a empresa para evoluir depois com catálogo completo, páginas de produto e SEO local.
           </p>
 
           <ul class="about-list">
-            <li>Estrutura pronta para virar site completo sem começar do zero</li>
-            <li>Seções estratégicas para melhorar percepção de marca e conversão</li>
-            <li>Base ideal para expansão futura de catálogo e SEO local</li>
-            <li>Layout pensado para transmitir solidez, alto padrão e confiança</li>
+            <li>Estrutura pronta para expansão de catálogo</li>
+            <li>Blocos comerciais mais claros e organizados</li>
+            <li>Foco em orçamento rápido pelo WhatsApp</li>
+            <li>Comunicação voltada para alto padrão e conversão</li>
           </ul>
         </div>
       </div>
@@ -894,52 +293,17 @@
 
     <section class="section">
       <div class="container">
-        <div class="reveal">
-          <h2 class="section-title">Para quem atendemos</h2>
-          <p class="section-subtitle">
-            Essa seção posiciona a empresa de forma mais premium e ajuda o visitante a se identificar rapidamente com o atendimento.
-          </p>
-        </div>
-
-        <div class="audience-grid">
-          <article class="audience-card reveal">
-            <h3>Consumidor final</h3>
-            <p>
-              Para quem quer transformar casa, fachada, jardim, varanda ou área gourmet com materiais de alto padrão.
-            </p>
-          </article>
-
-          <article class="audience-card reveal">
-            <h3>Arquitetos e designers</h3>
-            <p>
-              Apoio comercial para especificação de materiais e escolha de soluções alinhadas ao projeto.
-            </p>
-          </article>
-
-          <article class="audience-card reveal">
-            <h3>Construtoras e profissionais</h3>
-            <p>
-              Atendimento para obras, reformas, empreendimentos e projetos que exigem qualidade e credibilidade.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
         <div class="cta-section reveal">
-          <h2 class="section-title">Seu projeto merece um acabamento à altura</h2>
+          <h2 class="section-title">Chame no WhatsApp e descubra por que a Torrezan é referência em pedras decorativas</h2>
           <p>
-            Fale com nossa equipe, apresente sua necessidade e receba um atendimento mais consultivo para encontrar
-            o material ideal para o seu ambiente.
+            Fale com a equipe, apresente sua necessidade e receba atendimento rápido para encontrar o material ideal para sua obra.
           </p>
           <a
-            href="https://wa.me/5544999999999?text=Olá!%20Quero%20falar%20sobre%20um%20projeto%20com%20pedras%20decorativas."
+            href="https://wa.me/5544998970008?text=Olá!%20Quero%20fazer%20um%20orçamento%20agora."
             class="btn btn-primary"
             target="_blank"
           >
-            Chamar no WhatsApp
+            Quero fazer meu orçamento
           </a>
         </div>
       </div>
@@ -950,40 +314,39 @@
         <div class="reveal">
           <h2 class="section-title">Entre em contato</h2>
           <p class="section-subtitle">
-            Aqui você pode manter os dados atuais da loja e, quando subir a nova unidade, apenas trocar nome,
-            endereço, mapa e informações comerciais.
+            Visite a loja ou fale com a equipe comercial para solicitar orçamento e tirar dúvidas sobre materiais, aplicações e disponibilidade.
           </p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-card reveal">
-            <h3 style="font-size: 1.6rem; margin-bottom: 10px;">Vamos conversar sobre seu projeto</h3>
+            <h3 style="font-size: 1.6rem; margin-bottom: 10px;">Fale com a Torrezan</h3>
             <p style="color: var(--text-light);">
-              Atendimento para projetos residenciais, comerciais e corporativos. Solicite orçamento ou tire dúvidas com nossa equipe.
+              Atendimento comercial para projetos residenciais, comerciais e corporativos.
             </p>
 
             <ul class="contact-list">
               <li>
                 <strong>WhatsApp</strong>
-                <span>(44) 99999-9999</span>
+                <span>(44) 99897-0008</span>
               </li>
               <li>
-                <strong>Telefone</strong>
-                <span>(44) 0000-0000</span>
+                <strong>Telefone comercial</strong>
+                <span>(44) 3026-2332</span>
               </li>
               <li>
                 <strong>Endereço</strong>
-                <span>Rua Exemplo, 000 - Maringá/PR</span>
+                <span>Av. Colombo, 5073 - Zona 7, Maringá - PR</span>
               </li>
               <li>
-                <strong>Horário de atendimento</strong>
-                <span>Segunda a sexta, das 08h às 18h | Sábado, das 08h às 12h</span>
+                <strong>Site</strong>
+                <span>www.torrezanpedrasdecorativas.com.br</span>
               </li>
             </ul>
 
             <div style="margin-top: 26px;">
               <a
-                href="https://wa.me/5544999999999?text=Olá!%20Gostaria%20de%20um%20orçamento."
+                href="https://wa.me/5544998970008?text=Olá!%20Gostaria%20de%20um%20orçamento."
                 class="btn btn-primary"
                 target="_blank"
               >
@@ -995,10 +358,10 @@
           <div class="map-card reveal">
             <iframe
               class="map-embed"
-              src="https://www.google.com/maps?q=Maring%C3%A1%20PR&output=embed"
+              src="https://www.google.com/maps?q=Av.%20Colombo,%205073%20-%20Zona%207,%20Maring%C3%A1%20-%20PR&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Mapa da localização"
+              title="Mapa da localização da Torrezan"
             ></iframe>
           </div>
         </div>
@@ -1012,8 +375,7 @@
         <div>
           <h4>Torrezan Pedras Decorativas</h4>
           <p>
-            Pedras naturais, revestimentos e soluções decorativas para projetos residenciais e comerciais.
-            Estrutura pronta para crescer com catálogo, páginas internas e SEO local.
+            Pedras naturais, revestimentos e soluções decorativas para piscina, parede, calçada e jardim em Maringá e região.
           </p>
         </div>
 
@@ -1022,8 +384,8 @@
           <ul>
             <li><a href="#inicio">Início</a></li>
             <li><a href="#categorias">Categorias</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#campeoes">Campeões de venda</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
         </div>
@@ -1031,23 +393,24 @@
         <div>
           <h4>Contato</h4>
           <ul>
-            <li><a href="https://wa.me/5544999999999" target="_blank">WhatsApp: (44) 99999-9999</a></li>
+            <li><a href="https://wa.me/5544998970008" target="_blank">WhatsApp: (44) 99897-0008</a></li>
+            <li><a href="tel:+554430262332">Telefone: (44) 3026-2332</a></li>
+            <li><a href="#">Av. Colombo, 5073 - Zona 7</a></li>
             <li><a href="#">Maringá - PR</a></li>
-            <li><a href="#">Seg a Sex | 08h às 18h</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <span>© 2026 Torrezan Pedras Decorativas. Todos os direitos reservados.</span>
-        <span>Desenvolvido para expansão da presença digital da marca.</span>
+        <span>Site estruturado para expansão de catálogo e geração de orçamentos.</span>
       </div>
     </div>
   </footer>
 
   <a
     class="whatsapp-float"
-    href="https://wa.me/5544999999999?text=Olá!%20Quero%20um%20orçamento."
+    href="https://wa.me/5544998970008?text=Olá!%20Quero%20um%20orçamento."
     target="_blank"
     aria-label="WhatsApp"
   >
