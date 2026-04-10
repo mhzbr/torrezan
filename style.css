@@ -62,8 +62,22 @@ ul {
   color: var(--primary-dark);
 }
 
+.section-title2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 14px;
+  color: var(--white);
+}
+
 .section-subtitle {
   color: var(--text-light);
+  max-width: 760px;
+  font-size: 1.05rem;
+  margin-bottom: 36px;
+}
+
+.section-subtitle2 {
+  color: var(--white);
   max-width: 760px;
   font-size: 1.05rem;
   margin-bottom: 36px;
@@ -193,7 +207,7 @@ ul {
   overflow: hidden;
   background:
     linear-gradient(to right, rgba(27, 40, 29, 0.78), rgba(27, 40, 29, 0.48)),
-    url("img/hero-pedras.jpg") center/cover no-repeat;
+    url("https://minadaspedras.com.br/wp-content/uploads/2020/01/PEDRAS-DECORATIVAS-PEDRA-MADEIRA-AMARELA-COM-MIRACEMA.jpg") center/cover no-repeat;
   color: var(--white);
   min-height: 88vh;
   display: flex;
